@@ -24,6 +24,9 @@ The endpoints return a JSON response in the format the app expects:
 { "text": "Your current daily reminder" }
 ```
 
+For setup diagnostics, `/api/health` returns only whether the deployed app can
+see its Redis URL and token. It never returns credential values.
+
 ## How quote selection works
 
 - Only active quotes in the chosen widget channel are eligible.
