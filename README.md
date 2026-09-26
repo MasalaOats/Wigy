@@ -4,7 +4,7 @@ Wigy is a small Vercel dashboard for Project Istiqamah widget text. Add quotes o
 
 ## Deploy to Vercel
 
-1. Create an Upstash Redis database from the Vercel Marketplace and connect it to the Vercel project. Wigy accepts either `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` or Vercel's `KV_REST_API_URL` / `KV_REST_API_TOKEN` names.
+1. Create an Upstash Redis database. In Vercel, add `WIGY_REDIS_REST_URL` and `WIGY_REDIS_REST_TOKEN` manually, using the matching `KV_REST_API_URL` and `KV_REST_API_TOKEN` values from Upstash. Wigy also accepts the standard `UPSTASH_*` or `KV_*` names when an integration supplies them correctly.
 2. Add `WIGY_ADMIN_PASSWORD` in **Vercel → Project → Settings → Environment Variables**. Use a long, unique password.
 3. Import this GitHub repository into Vercel and deploy it.
 4. Open the deployed Wigy URL, sign in, and add text.

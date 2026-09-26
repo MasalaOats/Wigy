@@ -20,8 +20,10 @@ function storageConfig() {
   // Bracket access intentionally defers lookup to the server runtime. This
   // avoids Next.js replacing a value that was absent at build time.
   const env = (name: string) => process.env[name];
-  const url = env("UPSTASH_REDIS_REST_URL") ?? env("KV_REST_API_URL");
-  const token = env("UPSTASH_REDIS_REST_TOKEN") ?? env("KV_REST_API_TOKEN");
+  const url = env("WIGY_REDIS_REST_URL") ??
+    env("UPSTASH_REDIS_REST_URL") ?? env("KV_REST_API_URL");
+  const token = env("WIGY_REDIS_REST_TOKEN") ??
+    env("UPSTASH_REDIS_REST_TOKEN") ?? env("KV_REST_API_TOKEN");
   return { url, token };
 }
 
