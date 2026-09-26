@@ -26,7 +26,7 @@ export async function signIn(password: string) {
   if (!valid) return false;
   (await cookies()).set(cookieName, signature(), {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
     maxAge: 60 * 60 * 24 * 30
