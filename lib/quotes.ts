@@ -17,8 +17,11 @@ const quoteKey = "wigy:quotes";
 function storageConfig() {
   // The direct Upstash integration supplies UPSTASH_* variables; Vercel's
   // Marketplace connector commonly supplies the equivalent KV_* names.
-  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
+  // Bracket access intentionally defers lookup to the server runtime. This
+  // avoids Next.js replacing a value that was absent at build time.
+  const env = (name: string) => process.env[name];
+  const url = env("UPSTASH_REDIS_REST_URL") ?? env("KV_REST_API_URL");
+  const token = env("UPSTASH_REDIS_REST_TOKEN") ?? env("KV_REST_API_TOKEN");
   return { url, token };
 }
 
